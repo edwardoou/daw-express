@@ -26,17 +26,6 @@ const DATA = [
   },
 ];
 
-//*GET ALL USERS
-export const getIndex = (req, res) => {
-  // cuando vamos a construir un API las respuestas
-  // que enviemos deben ser en formato JSON
-  // res tiene la opcion de poder enviar respuestas en formato JSON
-  res.status(200).json({
-    ok: true,
-    DATA,
-  });
-};
-
 //login simple
 export const postLogin = (req, res) => {
   const { email, password } = req.body;
@@ -46,6 +35,33 @@ export const postLogin = (req, res) => {
       email,
       password,
     },
+  });
+};
+
+//No se si esta bien
+export const postPassword = (req, res) => {
+  const { email } = req.body;
+  for (let i = 0; i < DATA.length; i++) {
+    let correo = DATA[i]["email"];
+    if (email === correo) {
+      const { name, lastname, password: oldPassword } = DATA[i];
+      res.json({
+        type: "postPassword",
+        value: { name, lastname, oldPassword },
+      });
+    }
+  }
+};
+
+
+//*GET ALL USERS
+export const getIndex = (req, res) => {
+  // cuando vamos a construir un API las respuestas
+  // que enviemos deben ser en formato JSON
+  // res tiene la opcion de poder enviar respuestas en formato JSON
+  res.status(200).json({
+    ok: true,
+    DATA,
   });
 };
 
@@ -83,21 +99,6 @@ export const getUserId = (req, res) => {
       value: DATA[index],
     },
   });
-};
-
-//No se si esta bien
-export const postPassword = (req, res) => {
-  const { email } = req.body;
-  for (let i = 0; i < DATA.length; i++) {
-    let correo = DATA[i]["email"];
-    if (email === correo) {
-      const { name, lastname, password: oldPassword } = DATA[i];
-      res.json({
-        type: "postPassword",
-        value: { name, lastname, oldPassword },
-      });
-    }
-  }
 };
 
 //*UPDATE USER

@@ -28,3 +28,19 @@ describe("Creacion de usuario", () => {
   });
 });
 
+/* // PUT
+describe("Actualizacion de usuario", () => {
+  test("METHOD PUT", async () => {
+    const body = {
+      name: "Yahaira",
+      lastname: "Macassi",
+      email: "melanytest@gmail.com",
+      password: "melany123",
+    };
+
+    const result = await request(app).put("/user/update-user/"+8).send(body);
+
+    expect(result.status).toBe(200);
+    expect(result.ok).toBe(true);
+  });
+}); */
