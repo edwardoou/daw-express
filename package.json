@@ -1,7 +1,7 @@
 {
-  "name": "semana02_rutasnodelab",
+  "name": "daw_express",
   "version": "1.0.0",
-  "description": "Lab de AWA",
+  "description": "Repositorio principal de DAW Avanzado",
   "main": "index.js",
   "scripts": {
     "babel-node": "babel-node",
