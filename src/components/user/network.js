@@ -14,12 +14,9 @@ import * as controller from "./controller";
 const router = Router();
 
 //rutas
-router.route("/").get(controller.getIndex);
-router.route("/login").post(controller.postLogin);
-router.route("/sign-up").post(controller.createUser);
-router.route("/show-user/:id").get(controller.getUserId);
-router.route("/reset-password").post(controller.postPassword);
-router.route("/update-user/:id").put(controller.updateUser);
-router.route("/delete-user/:id").delete(controller.deleteUser);
+router.route("/").get(controller.index);
+router.route("/store").post(controller.store);
+router.route("/update/:id").put(controller.upsert);
+router.route("/delete/:id").delete(controller.destroy);
 
 export default router;
